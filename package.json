@@ -4,7 +4,7 @@
   "description": "Proyecto UpTask con Node y MVC",
   "main": "index.js",
   "scripts": {
-    "start" :"nodemon ./index.js"
+    "start": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/GastonBruni/UpTask#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
