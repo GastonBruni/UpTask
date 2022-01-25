@@ -34,8 +34,7 @@ exports.nuevoProyecto = (req, res) => {
     }else{
         // no hay errores
         // insertamos en la BD.
-        Proyectos.create({ nombre })
-            .then(() => console.log('Insertado Correctamente'))
-            .catch(error => console.log(error));
+        Proyectos.create({ nombre});
+        res.redirect('/');
     }
 }

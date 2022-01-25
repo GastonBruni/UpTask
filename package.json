@@ -18,9 +18,12 @@
   "homepage": "https://github.com/GastonBruni/UpTask#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "express-validator": "^6.14.0",
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
-    "sequelize": "^6.14.1"
+    "sequelize": "^6.14.1",
+    "shortid": "^2.2.16",
+    "slug": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
