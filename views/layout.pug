@@ -9,8 +9,8 @@ html(lang="en")
         title #{nombrePagina}
     body 
         header.barra 
-            h1 UpTask - Administrador de Proyectos 
-            a(href="#") Cerrar Sesion 
+            h1 UpTask - Administrador de Proyectos
+            a(href="/cerrar-sesion") Cerrar Sesión
         
         main.contenedor
             aside.contenedor-proyectos 
@@ -20,11 +20,8 @@ html(lang="en")
                 .panel.lista-proyectos 
                     h2 Proyectos
                     ul#proyectos.proyectos 
-                        li 
-                            a(href="#") Diseño de Tienda Virtual 
-                        li 
-                            a(href="#") Diseño de Nuevo Blogs
-                        li 
-                            a(href="#") Diseño de Logotipo
-
+                        if(proyectos)
+                            each proyecto in proyectos 
+                                li 
+                                    a(href="#")=proyecto.nombre  
             block contenido

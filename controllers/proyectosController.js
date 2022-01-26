@@ -1,8 +1,11 @@
 const Proyectos = require('../models/Proyectos'); 
 
-exports.proyectosHome = (req, res) => {
+exports.proyectosHome = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
+
     res.render('index', {
-        nombrePagina: 'Proyectos'
+        nombrePagina: 'Proyectos',
+        proyectos
     });
 }
 
@@ -16,7 +19,7 @@ exports.nuevoProyecto = (req, res) => {
     // enviar a la consola lo que el usuario escriba.
     // console.log(req.body);
 
-    // validar que tengamos algo en el input
+    // validamos que tengamos algo en el input
     const { nombre } = req.body;
 
     let errores = [];
