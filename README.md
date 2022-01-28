@@ -1,2 +1,2 @@
 # UpTask
-Plataforma web realizada con Node.js, MySQL, Pug, Sequelize, MVC, Express, Node, SweetAlert2, entre otros.
+Plataforma web (UpTask - Administrador de tareas) realizada con Node, MySQL, Pug, Sequelize, MVC, Express, SweetAlert2, entre otros.
