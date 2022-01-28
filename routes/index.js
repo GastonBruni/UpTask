@@ -13,6 +13,18 @@ module.exports = function(){
     router.get('/nuevo-proyecto', proyectosController.formularioProyecto);
     router.post('/nuevo-proyecto', 
         body('nombre').not().isEmpty().trim().escape(),
-        proyectosController.nuevoProyecto);
+        proyectosController.nuevoProyecto
+    );
+
+    // listar proyecto
+    router.get('/proyectos/:url', proyectosController.proyectoPorUrl);
+
+    // actualizar el proyecto
+    router.get('/proyecto/editar/:id', proyectosController.formularioEditar);
+    router.post('/nuevo-proyecto/:id', 
+        body('nombre').not().isEmpty().trim().escape(),
+        proyectosController.ActualizarProyecto
+    );
+
     return router;
 }
