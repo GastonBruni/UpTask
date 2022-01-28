@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // importar express validator
-const { body } = require('express-validator/check');
+const { body } = require('express-validator');
 
 // importamos el controlador
 const proyectosController = require('../controllers/proyectosController');
@@ -25,6 +25,9 @@ module.exports = function(){
         body('nombre').not().isEmpty().trim().escape(),
         proyectosController.ActualizarProyecto
     );
+
+    // eliminar proyecto
+    router.delete('/proyectos/:url', proyectosController.eliminarProyecto);
 
     return router;
 }
