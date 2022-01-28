@@ -10,8 +10,9 @@ const helpers = require('./helpers');
 const db = require('./config/db');
 const res = require('express/lib/response');
 
-// importar el modelo
+// importar el modelo de proyectos y tareas
 require('./models/Proyectos');
+require('./models/Tareas');
 
 db.sync();
 
