@@ -30,6 +30,13 @@ block contenido
         
         //- pre= vardump(proyecto)
 
+        // avance del Proyecto
+        .avance
+            h2  Avance del Proyecto 
+            #barra-avance.barra-avance 
+                #porcentaje.porcentaje 
+            
+
         // acciones que se pueden realizar
         .contenedor-acciones 
             a(href=`/proyecto/editar/${proyecto.id}` class="boton") Editar Proyecto 
