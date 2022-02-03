@@ -43,6 +43,8 @@ module.exports = function(){
 
     // crear nueva cuenta
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
+    // metodo post de crear nueva cuenta
+    router.post('/crear-cuenta', usuariosController.crearCuenta);
 
     return router;
 }

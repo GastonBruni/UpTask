@@ -8,11 +8,11 @@ const helpers = require('./helpers');
 
 // crear conexion a la BD
 const db = require('./config/db');
-const res = require('express/lib/response');
 
 // importar el modelo de proyectos y tareas
 require('./models/Proyectos');
 require('./models/Tareas');
+require('./models/Usuarios');
 
 db.sync();
 
