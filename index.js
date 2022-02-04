@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const passport = require('./config/passport');
 
 // importar helpers con algunas funciones
 const helpers = require('./helpers');
@@ -39,12 +40,16 @@ app.use(flash());
 
 app.use(cookieParser());
 
-// sessiones nos permiten navegar entre distintas paginas sin volvernos a aautenticar
+// sesiones que nos permiten navegar entre distintas paginas sin volvernos a aautenticar
 app.use(session({
     secret: 'supersecreto',
     resave: false,
     saveUninitialized: false
 }));
+
+// iniciamos instancia de passport
+app.use(passport.initialize);
+app.use(passport.session);
 
 // pasar var dump a la aplicacion (Middleware)
 app.use((req, res, next) => {
