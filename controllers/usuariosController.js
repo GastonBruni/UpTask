@@ -18,11 +18,12 @@ exports.crearCuenta = async (req,res) => {
                 password  
         });
         res.redirect('/iniciar-sesion')
-
     } catch (error) {
+        // creamos request
+        req.flash('error', error.errors.map(error => error.message));
         // en caso de usuario duplicado
         res.render('crearCuenta', {
-            error: error.errors,
+            mensajes: req.flash(),
             nombrePagina: 'Crear cuenta en UpTask'
         })
     }
