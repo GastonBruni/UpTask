@@ -42,7 +42,7 @@ app.use(cookieParser());
 
 // sesiones que nos permiten navegar entre distintas paginas sin volvernos a aautenticar
 app.use(session({
-    secret: 'supersecreto',
+    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false
 }));

@@ -21,3 +21,11 @@ exports.usuarioAutenticado = (req, res, next) => {
     // sino, redirigir al formulario
     return res.redirect('/iniciar-sesion');
 }
+
+// funcion para cerrar sesion
+exports.cerrarSesion = (req, res) => {
+    req.session.destroy(() => {
+        // al cerrar sesion nos lleva a la pagina principal (login)
+        res.redirect('/iniciar-sesion');
+    });
+}
