@@ -2,7 +2,11 @@ const Proyectos = require('../models/Proyectos');
 const Tareas = require('../models/Tareas'); 
 
 exports.proyectosHome = async (req, res) => {
-    const proyectos = await Proyectos.findAll();
+
+    // console.log(res.locals.usuario)
+
+    const usuarioId = res.locals.usuario.id;
+    const proyectos = await Proyectos.findAll({where: { usuarioId }});
 
     res.render('index', {
         nombrePagina: 'Proyectos',
@@ -11,7 +15,10 @@ exports.proyectosHome = async (req, res) => {
 }
 
 exports.formularioProyecto = async (req, res) => {
-    const proyectos = await Proyectos.findAll();
+
+    const usuarioId = res.locals.usuario.id;
+    const proyectos = await Proyectos.findAll({where: { usuarioId }});
+
 
     res.render('nuevoProyecto', {
         nombrePagina: 'Nuevo Proyecto',
@@ -20,7 +27,10 @@ exports.formularioProyecto = async (req, res) => {
 }
 
 exports.nuevoProyecto = async (req, res) => {
-    const proyectos = await Proyectos.findAll();
+
+    const usuarioId = res.locals.usuario.id;
+    const proyectos = await Proyectos.findAll({where: { usuarioId }});
+
 
     // enviar a la consola lo que el usuario escriba.
     // console.log(req.body);
@@ -44,17 +54,20 @@ exports.nuevoProyecto = async (req, res) => {
     }else{
         // no hay errores
         // insertamos en la BD.
-        await Proyectos.create({ nombre});
+        const usuarioId = res.locals.usuario.id;
+        await Proyectos.create({ nombre, usuarioId });
         res.redirect('/');
     }
 }
 
 exports.proyectoPorUrl = async (req, res, next) => {
-    const proyectosPromise =  Proyectos.findAll();
+    const usuarioId = res.locals.usuario.id;
+    const proyectosPromise = Proyectos.findAll({where: { usuarioId }});
 
     const proyectoPromise = await Proyectos.findOne({
         where: {
-            url: req.params.url
+            url: req.params.url,
+            usuarioId
         }
     });
 
