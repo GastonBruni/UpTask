@@ -48,8 +48,8 @@ app.use(session({
 }));
 
 // iniciamos instancia de passport
-app.use(passport.initialize);
-app.use(passport.session);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // pasar var dump a la aplicacion (Middleware)
 app.use((req, res, next) => {

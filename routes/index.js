@@ -8,7 +8,7 @@ const { body } = require('express-validator');
 const proyectosController = require('../controllers/proyectosController');
 const tareasController = require('../controllers/tareasController');
 const usuariosController = require('../controllers/usuariosController');
-
+const authController = require('../controllers/authController');
 
 module.exports = function(){
     // definimos rutas para el home
@@ -48,6 +48,8 @@ module.exports = function(){
 
     // iniciar sesión
     router.get('/iniciar-sesion', usuariosController.formIniciarSesion);
+    router.post('/iniciar-sesion', authController.auntenticarUsuario);
+
 
     return router;
 }
