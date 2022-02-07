@@ -35,7 +35,4 @@ exports.enviar = async (opciones) => {
     // send mail with defined transport object
     const enviarEmail = util.promisify(transport.sendMail, transport);
     return enviarEmail.call(transport, opcionesEmail)
-
 }
-
-
